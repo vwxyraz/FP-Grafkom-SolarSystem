@@ -16,12 +16,12 @@ function resizeCanvas() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
-    scene.onWindowResize();
+    sceneManager.onWindowResize();
 }
 
 function render(time) {
     // convert time into seconds
     time *= 0.001;
     requestAnimationFrame(render);
-    scene.update(time);
+    sceneManager.update(time);
 }
