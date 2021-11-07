@@ -74,7 +74,6 @@ function scene(canvas) {
 
 
         let x = sceneSubjects[0];
-        pickHelper.pick(pickPosition, x.getAstrionomicalBodies(), camera, time, scene);
         cameraControls.update();
         renderer.render(scene, camera);
     }
