@@ -156,12 +156,6 @@ const texture = loaderTexture.load(
 /*
  * Planets
  */
-function createPlanet(scene, mesh, group, x, scale) {
-    mesh.position.set(x, 0, 0);
-    mesh.scale.setScalar(scale);
-    group.add(mesh);
-    scene.add(group);
-}
 
 const loader = new THREE.TextureLoader();
 
@@ -196,7 +190,14 @@ const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture});
 const earthGroup = new THREE.Group();
 const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 createPlanet(scene, earthMesh, earthGroup, 31, 1);
- 
+
+function createPlanet(scene, mesh, group, x, scale) {
+    mesh.position.set(x, 0, 0);
+    mesh.scale.setScalar(scale);
+    group.add(mesh);
+    scene.add(group);
+}
+
  
  /*
   * Controls
