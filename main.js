@@ -33,7 +33,7 @@ const texture = loaderTexture.load(
         rt.fromEquirectangularTexture(renderer, texture);
         scene.background = rt.texture;
     });
-scene.fog = new THREE.FogExp2('0xffffff', 0.1);
+// scene.fog = new THREE.FogExp2('0xffffff', 0.1);
 
 /** 
  * lights 
