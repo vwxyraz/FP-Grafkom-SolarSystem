@@ -16,20 +16,20 @@ function scene(canvas) {
 
     //scene.background = new THREE.Color('black');
 
-    // Background
-    const loaderBG = new THREE.CubeTextureLoader();
-    const bgTexture = loaderBG.load([
-        './texture/px.png',
-        './texture/nx.png',
-        './texture/py.png',
-        './texture/ny.png',
-        './texture/pz.png',
-        './texture/nz.png',
-    ]);
-
     function buildScene() {
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color("#000");
+//         scene.background = new THREE.Color("#000");
+        
+        // Background
+        const loaderBG = new THREE.CubeTextureLoader();
+        const bgTexture = loaderBG.load([
+            './texture/px.png',
+            './texture/nx.png',
+            './texture/py.png',
+            './texture/ny.png',
+            './texture/pz.png',
+            './texture/nz.png',
+        ]);
 
         return scene;
     }
