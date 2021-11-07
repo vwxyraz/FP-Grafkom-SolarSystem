@@ -153,8 +153,8 @@ scene.fog = new THREE.FogExp2('0xffffff', 0.1);
 //  })
  
  
- const geometrySphere = new THREE.SphereGeometry(.3, 48 , 24);
- const materialDisco = new THREE.MeshPhysicalMaterial( {wireframe: false, map: loaderTexture.load('./texture/panorama.jpg')} );
+ const geometrySphere = new THREE.SphereGeometry(3, 48 , 24);
+ const materialDisco = new THREE.MeshPhysicalMaterial( {wireframe: false, map: loaderTexture.load('./texture/sun.jpg')} );
  materialDisco.color = new THREE.Color(0xffffff);
  const disco = new THREE.Mesh(geometrySphere, materialDisco);
  disco.position.y = 5;
@@ -163,7 +163,7 @@ scene.fog = new THREE.FogExp2('0xffffff', 0.1);
  const refMat = new THREE.MeshBasicMaterial({
      envMap: sphereCamera.renderTarget.texture,
  });
- const refGeo = new THREE.SphereGeometry(.3, 48 , 24);
+ const refGeo = new THREE.SphereGeometry(3, 48 , 24);
  
  
  const geometryBox = new THREE.BoxGeometry(9, 0.2, 9);
