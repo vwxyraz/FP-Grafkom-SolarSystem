@@ -1,4 +1,4 @@
-
+import * as THREE from './js/three.module.js';
 
 function scene(canvas) {
 
@@ -14,7 +14,7 @@ function scene(canvas) {
 
     const cameraControls = new MyCameraControls(camera, canvas);
 
-    scene.background = new THREE.Color('black');
+    //scene.background = new THREE.Color('black');
 
     // Background
     const loaderBG = new THREE.CubeTextureLoader();
@@ -27,18 +27,12 @@ function scene(canvas) {
         './texture/nz.png',
     ]);
 
+    function buildScene() {
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color("#000");
 
-    // //Picker
-    // const pickPosition = { x: 0, y: 0 };
-    // const pickHelper = new PickHelper();
-    // clearPickPosition();
-
-    // function buildScene() {
-    //     const scene = new THREE.Scene();
-    //     scene.background = new THREE.Color("#000");
-
-    //     return scene;
-    // }
+        return scene;
+    }
 
     function buildRender({ width, height }) {
         const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
@@ -102,79 +96,4 @@ function scene(canvas) {
         renderer.setSize(width, height);
     }
 
-
-    // Picker
-    // function getCanvasRelativePosition(event) {
-    //     const rect = canvas.getBoundingClientRect();
-    //     return {
-    //         x: (event.clientX - rect.left) * canvas.width / rect.width,
-    //         y: (event.clientY - rect.top) * canvas.height / rect.height,
-    //     };
-    // }
-
-    // function setPickPosition(event) {
-    //     const pos = getCanvasRelativePosition(event);
-    //     pickPosition.x = (pos.x / canvas.width) * 2 - 1;
-    //     pickPosition.y = (pos.y / canvas.height) * -2 + 1;  // note we flip Y
-    // }
-
-    // function clearPickPosition() {
-    //     // unlike the mouse which always has a position
-    //     // if the user stops touching the screen we want
-    //     // to stop picking. For now we just pick a value
-    //     // unlikely to pick something
-    //     pickPosition.x = undefined;
-    //     pickPosition.y = undefined;
-    // }
-
-    // window.addEventListener('dblclick', setPickPosition);
-    // window.addEventListener('mouseout', clearPickPosition);
-    // window.addEventListener('mouseleave', clearPickPosition);
-
-    // // Mobile support
-    // window.addEventListener('touchstart', (event) => {
-    //     // prevent the window from scrolling
-    //     event.preventDefault();
-    //     setPickPosition(event.touches[0]);
-    // }, { passive: false });
-
-    // window.addEventListener('touchmove', (event) => {
-    //     setPickPosition(event.touches[0]);
-    // });
-
-    // window.addEventListener('touchend', clearPickPosition);
-
-
-
-    // {
-    //     // Modal
-    //     // Get the <span> element that closes the modal
-    //     var span = document.getElementsByClassName("close")[0];
-    //     var modal = document.getElementById("myModal");
-
-    //     // When the user clicks on <span> (x), close the modal
-    //     span.onclick = function () {
-    //         modal.style.display = "none";
-    //     }
-
-    //     span.addEventListener('touchend', (event) => {
-    //         modal.style.display = "none";
-    //     });
-
-
-    //     // When the user clicks anywhere outside of the modal, close it (mobile)
-    //     window.addEventListener('touchend', (event) => {
-    //         if (event.target == modal) {
-    //             modal.style.display = "none";
-    //         }
-    //     });
-
-
-    //     // When the user clicks anywhere outside of the modal, close it
-    //     window.onclick = function (event) {
-    //         if (event.target == modal) {
-    //             modal.style.display = "none";
-    //         }
-    //     }
-    // }
 }
