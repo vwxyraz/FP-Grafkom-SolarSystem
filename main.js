@@ -191,6 +191,13 @@ const earthGroup = new THREE.Group();
 const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 createPlanet(scene, earthMesh, earthGroup, 31, 1);
 
+//mars 
+const marsTexture = loader.load("texture/mars.jpg"); 
+const marsMaterial = new THREE.MeshStandardMaterial({ map: marsTexture });
+const marsGroup = new THREE.Group();
+const marsMesh = new THREE.Mesh(geometry, marsMaterial);
+createPlanet(scene, marsMesh, marsGroup, 34, 0.8);
+
 //jupiter
 const jupiterTexture = loader.load("texture/jupiter.jpg");
 const jupiterMaterial = new THREE.MeshStandardMaterial({ map: jupiterTexture });
@@ -203,7 +210,7 @@ const saturnTexture = loader.load("texture/saturn.jpg");
 const saturnMaterial = new THREE.MeshStandardMaterial({ map: saturnTexture });
 const saturnGroup = new THREE.Group();
 const saturnMesh = new THREE.Mesh(geometry, saturnMaterial);
-createPlanet(scene, saturnMesh, saturnGroup, 50, 2.9);
+createPlanet(scene, saturnMesh, saturnGroup, 70, 2.9);
 
     // Saturns ring
     const innerRadius = 4;
@@ -219,7 +226,7 @@ createPlanet(scene, saturnMesh, saturnGroup, 50, 2.9);
     const mesh = new THREE.Mesh(saturnBelt, material);
     mesh.rotation.set(5,0,0);
 
-    mesh.position.set(50, 0, 0);
+    mesh.position.set(70, 0, 0);
     saturnGroup.add(mesh);
 
 
