@@ -211,7 +211,7 @@ createPlanet(scene, saturnMesh, saturnGroup, 50, 2.9);
     mesh.rotation.set(5,0,0);
 
     mesh.position.set(50, 0, 0);
-    scene.add(mesh);
+    saturnGroup.add(mesh);
 
 
 function createPlanet(scene, mesh, group, x, scale) {
