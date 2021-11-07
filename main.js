@@ -174,8 +174,8 @@ const texture = loaderTexture.load(
 //  scene.add(cube);
  
  disco.castShadow = true;
- cube.receiveShadow = true;
- cube.castShadow = true;
+//  cube.receiveShadow = true;
+//  cube.castShadow = true;
  
  /*
   * Controls
