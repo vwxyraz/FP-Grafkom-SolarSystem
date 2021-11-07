@@ -62,9 +62,6 @@ function scene(canvas) {
     function createSceneSubjects(scene) {
         const sceneSubjects = [
             new SolarSystem(scene),
-            new AmbientLight(scene),
-            new SunLight(scene),
-            new Stars(scene)
         ];
 
         return sceneSubjects;
