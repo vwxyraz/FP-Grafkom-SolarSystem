@@ -153,30 +153,50 @@ const texture = loaderTexture.load(
 //  })
  
  
+/*
+ * Planets
+ */
+function createPlanet(scene, mesh, group, x, scale) {
+    mesh.position.set(x, 0, 0);
+    mesh.scale.setScalar(scale);
+    group.add(mesh);
+    scene.add(group);
+}
+
+const loader = new THREE.TextureLoader();
+
+const scene = new THREE.Scene();
+const geometry = new THREE.SphereGeometry(1, 48, 32);
+
 //sun
- const geometrySphere = new THREE.SphereGeometry(3, 48 , 24);
- const materialDisco = new THREE.MeshPhysicalMaterial( {wireframe: false, map: loaderTexture.load('./texture/sun.jpg')} );
- materialDisco.color = new THREE.Color(0xffffff);
- const sun = new THREE.Mesh(geometrySphere, materialDisco);
-sun.position.y = 5;
- scene.add(sun);
+const sunTexture = loader.load("texture/sun.jpg");
+const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture });
+const sunMesh = new THREE.Mesh(geometry, sunMaterial);
+sunMesh.position.set(0, 0, 0);
+sunMesh.scale.setScalar(10);
+scene.add(sunMesh);
+
+//mercury
+const mercuryTexture = loader.load("texture/mercury.jpg");
+const mercuryMaterial = new THREE.MeshStandardMaterial({ map: mercuryTexture });
+const mercuryGroup = new THREE.Group();
+const mercuryMesh = new THREE.Mesh(geometry, mercuryMaterial);
+createPlanet(scene, mercuryMesh, mercuryGroup, 25, 0.8);
+
+//venus
+const venusTexture = loader.load("assets/venus.jpg");
+const venusMaterial = new THREE.MeshStandardMaterial({ map: venusTexture });
+const venusGroup = new THREE.Group();
+const venusMesh = new THREE.Mesh(geometry, venusMaterial);
+createPlanet(scene, venusMesh, venusGroup, 28, 0.9);
+
+//earth
+const earthTexture = loader.load("assets/earth.jpg");
+const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture});
+const earthGroup = new THREE.Group();
+const earthMesh = new THREE.Mesh(geometry, earthMaterial);
+createPlanet(scene, earthMesh, earthGroup, 31, 1);
  
- const refMat = new THREE.MeshBasicMaterial({
-     envMap: sphereCamera.renderTarget.texture,
- });
- const refGeo = new THREE.SphereGeometry(3, 48 , 24);
- 
- 
-//  const geometryBox = new THREE.BoxGeometry(9, 0.2, 9);
-//  const materialBox = new THREE.MeshPhysicalMaterial( {wireframe: false} );
-//  materialBox.color = new THREE.Color(0xffffff);
-//  const cube = new THREE.Mesh(geometryBox, materialBox);
-// //  cube.position.y = 0;
-//  scene.add(cube);
- 
-//  disco.castShadow = true;
-//  cube.receiveShadow = true;
-//  cube.castShadow = true;
  
  /*
   * Controls
