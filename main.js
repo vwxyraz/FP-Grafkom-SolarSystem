@@ -192,6 +192,8 @@ const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 createPlanet(scene, earthMesh, earthGroup, 31, 1);
 
 //saturn
+const saturnTexture = loader.load("texture/saturn.jpg");
+const saturnMaterial = new THREE.MeshStandardMaterial({ map: saturnTexture });
 const saturnGroup = new THREE.Group();
 const saturnMesh = new THREE.Mesh(geometry, saturnMaterial);
 createPlanet(scene, saturnMesh, saturnGroup, 50, 2.9);
