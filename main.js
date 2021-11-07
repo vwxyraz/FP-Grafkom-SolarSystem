@@ -27,7 +27,7 @@ const bgTexture = loaderBG.load([
 // Texture
 const loaderTexture = new THREE.TextureLoader();
 const texture = loaderTexture.load(
-    'texture/cannon.jpg',
+    'texture/bg.jpg',
     () => {
         const rt = new THREE.WebGLCubeRenderTarget(texture.image.height);
         rt.fromEquirectangularTexture(renderer, texture);
