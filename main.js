@@ -154,16 +154,18 @@ const texture = loaderTexture.load(
  
  
 //sun
- const geometrySphere = new THREE.SphereGeometry(16, 48 , 24);
+ const geometrySphere = new THREE.SphereGeometry(3, 48 , 24);
  const materialDisco = new THREE.MeshPhysicalMaterial( {wireframe: false, map: loaderTexture.load('./texture/sun.jpg')} );
  materialDisco.color = new THREE.Color(0xffffff);
  const sun = new THREE.Mesh(geometrySphere, materialDisco);
+sun.position.y = 0;
+sun.position.x = 0;
  scene.add(sun);
  
  const refMat = new THREE.MeshBasicMaterial({
      envMap: sphereCamera.renderTarget.texture,
  });
- const refGeo = new THREE.SphereGeometry(16, 48 , 24);
+ const refGeo = new THREE.SphereGeometry(3, 48 , 24);
  
  
 //  const geometryBox = new THREE.BoxGeometry(9, 0.2, 9);
