@@ -165,7 +165,7 @@ function createPlanet(scene, mesh, group, x, scale) {
 
 const loader = new THREE.TextureLoader();
 
-const scene = new THREE.Scene();
+// const scene = new THREE.Scene();
 const geometry = new THREE.SphereGeometry(1, 48, 32);
 
 //sun
