@@ -158,7 +158,6 @@ const texture = loaderTexture.load(
  const materialDisco = new THREE.MeshPhysicalMaterial( {wireframe: false, map: loaderTexture.load('./texture/sun.jpg')} );
  materialDisco.color = new THREE.Color(0xffffff);
  const sun = new THREE.Mesh(geometrySphere, materialDisco);
- sun.position.y = 5;
  scene.add(sun);
  
  const refMat = new THREE.MeshBasicMaterial({
@@ -174,10 +173,10 @@ const mercury = new THREE.Mesh(geometrySphere, materialDisco);
 mercury.position.x = 10;
 mercury.add(mercury);
 
-const refMat = new THREE.MeshBasicMaterial({
-    envMap: sphereCamera.renderTarget.texture,
-});
-const refGeo = new THREE.SphereGeometry(0.8, 48 , 24);
+// const refMat = new THREE.MeshBasicMaterial({
+//     envMap: sphereCamera.renderTarget.texture,
+// });
+// const refGeo = new THREE.SphereGeometry(0.8, 48 , 24);
  
  
 //  const geometryBox = new THREE.BoxGeometry(9, 0.2, 9);
