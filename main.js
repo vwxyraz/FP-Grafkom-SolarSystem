@@ -207,11 +207,13 @@ createPlanet(scene, saturnMesh, saturnGroup, 50, 2.9);
     const material = new THREE.MeshPhongMaterial({
         side: THREE.DoubleSide,
     });
-    const mesh = new THREE.Mesh(saturnBelt, material);
-    mesh.rotation.set(5,0,0);
+    
+    const ringTexture = loader.load("texture/saturn_ring.png");
+    const ringMaterial = new THREE.MeshStandardMaterial({ map: ringTexture });
+    ring.rotation.set(5,0,0);
 
-    mesh.position.set(50, 0, 0);
-    saturnGroup.add(mesh);
+    ring.position.set(50, 0, 0);
+    saturnGroup.add(ring);
 
 
 function createPlanet(scene, mesh, group, x, scale) {
