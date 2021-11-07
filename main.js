@@ -191,6 +191,13 @@ const earthGroup = new THREE.Group();
 const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 createPlanet(scene, earthMesh, earthGroup, 31, 1);
 
+//jupiter
+const jupiterTexture = loader.load("texture/jupiter.jpg");
+const jupiterMaterial = new THREE.MeshStandardMaterial({ map: jupiterTexture });
+const jupiterGroup = new THREE.Group();
+const jupiterMesh = new THREE.Mesh(geometry, jupiterMaterial);
+createPlanet(scene, jupiterMesh, jupiterGroup, 42, 3.5);
+
 //saturn
 const saturnTexture = loader.load("texture/saturn.jpg");
 const saturnMaterial = new THREE.MeshStandardMaterial({ map: saturnTexture });
