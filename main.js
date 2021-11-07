@@ -204,15 +204,15 @@ createPlanet(scene, saturnMesh, saturnGroup, 50, 2.9);
     const thetaSegments = 60;
     const saturnBelt = new THREE.RingBufferGeometry(
         innerRadius, outerRadius, thetaSegments);
+    const ringTexture = loader.load("texture/saturn_ring.png");
     const material = new THREE.MeshPhongMaterial({
-        side: THREE.DoubleSide,
+        side: THREE.DoubleSide, map: ringTexture,
     });
     
-    const ringTexture = loader.load("texture/saturn_ring.png");
-    const ringMaterial = new THREE.MeshStandardMaterial({ map: ringTexture });
-    ring.rotation.set(5,0,0);
+    const mesh = new THREE.Mesh(saturnBelt, material);
+    mesh.rotation.set(5,0,0);
 
-    ring.position.set(50, 0, 0);
+    mesh.position.set(50, 0, 0);
     saturnGroup.add(ring);
 
 
