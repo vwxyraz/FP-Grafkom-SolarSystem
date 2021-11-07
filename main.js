@@ -153,17 +153,31 @@ const texture = loaderTexture.load(
 //  })
  
  
- const geometrySphere = new THREE.SphereGeometry(3, 48 , 24);
+//sun
+ const geometrySphere = new THREE.SphereGeometry(16, 48 , 24);
  const materialDisco = new THREE.MeshPhysicalMaterial( {wireframe: false, map: loaderTexture.load('./texture/sun.jpg')} );
  materialDisco.color = new THREE.Color(0xffffff);
- const disco = new THREE.Mesh(geometrySphere, materialDisco);
- disco.position.y = 5;
- scene.add(disco);
+ const sun = new THREE.Mesh(geometrySphere, materialDisco);
+ sun.position.y = 5;
+ scene.add(sun);
  
  const refMat = new THREE.MeshBasicMaterial({
      envMap: sphereCamera.renderTarget.texture,
  });
- const refGeo = new THREE.SphereGeometry(3, 48 , 24);
+ const refGeo = new THREE.SphereGeometry(16, 48 , 24);
+
+//mercury
+const geometrySphere = new THREE.SphereGeometry(0.8, 48 , 24);
+const materialDisco = new THREE.MeshPhysicalMaterial( {wireframe: false, map: loaderTexture.load('./texture/mercury.jpg')} );
+materialDisco.color = new THREE.Color(0xffffff);
+const mercury = new THREE.Mesh(geometrySphere, materialDisco);
+mercury.position.x = 10;
+mercury.add(mercury);
+
+const refMat = new THREE.MeshBasicMaterial({
+    envMap: sphereCamera.renderTarget.texture,
+});
+const refGeo = new THREE.SphereGeometry(0.8, 48 , 24);
  
  
 //  const geometryBox = new THREE.BoxGeometry(9, 0.2, 9);
@@ -173,7 +187,7 @@ const texture = loaderTexture.load(
 // //  cube.position.y = 0;
 //  scene.add(cube);
  
- disco.castShadow = true;
+//  disco.castShadow = true;
 //  cube.receiveShadow = true;
 //  cube.castShadow = true;
  
