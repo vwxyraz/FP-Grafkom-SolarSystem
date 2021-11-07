@@ -59,24 +59,24 @@ function scene(canvas) {
         return camera;
     }
 
-    function createSceneSubjects(scene) {
-        const sceneSubjects = [
-            new SolarSystem(scene),
-        ];
+//     function createSceneSubjects(scene) {
+//         const sceneSubjects = [
+//             new SolarSystem(scene),
+//         ];
 
-        return sceneSubjects;
-    }
+//         return sceneSubjects;
+//     }
 
-    // It is called by the main at every frame.
-    this.update = function (time) {
-        for (let i = 0; i < sceneSubjects.length; i++)
-            sceneSubjects[i].update(time);
+//     // It is called by the main at every frame.
+//     this.update = function (time) {
+//         for (let i = 0; i < sceneSubjects.length; i++)
+//             sceneSubjects[i].update(time);
 
 
-        let x = sceneSubjects[0];
-//         cameraControls.update();
-        renderer.render(scene, camera);
-    }
+//         let x = sceneSubjects[0];
+// //         cameraControls.update();
+//         renderer.render(scene, camera);
+//     }
 
     // Updates the aspect ratio of the camera and the size of the Renderer. 
     // It is called by the main each time the window is resized.
