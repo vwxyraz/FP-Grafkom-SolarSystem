@@ -234,14 +234,14 @@ const uranusTexture = loader.load("texture/uranus.jpg");
 const uranusMaterial = new THREE.MeshStandardMaterial({ map: uranusTexture });
 const uranusGroup = new THREE.Group();
 const uranusMesh = new THREE.Mesh(geometry, uranusMaterial);
-createPlane(scene, uranusMesh, uranusGroup, 56, 1.7);
+createPlanet(scene, uranusMesh, uranusGroup, 80, 1.7);
 
 //neptunus
 const neptuneTexture = loader.load("texture/neptune.jpg");
 const neptuneMaterial = new THREE.MeshStandardMaterial({ map: neptuneTexture });
 const neptuneGroup = new THREE.Group();
 const neptuneMesh = new THREE.Mesh(geometry, neptuneMaterial);
-createPlane(scene, neptuneMesh, neptuneGroup, 60, 1.65);
+createPlanet(scene, neptuneMesh, neptuneGroup, 86, 1.65);
 
 function createPlanet(scene, mesh, group, x, scale) {
     mesh.position.set(x, 0, 0);
