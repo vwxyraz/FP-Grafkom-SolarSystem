@@ -178,14 +178,14 @@ const mercuryMesh = new THREE.Mesh(geometry, mercuryMaterial);
 createPlanet(scene, mercuryMesh, mercuryGroup, 25, 0.8);
 
 //venus
-const venusTexture = loader.load("assets/venus.jpg");
+const venusTexture = loader.load("texture/venus.jpg");
 const venusMaterial = new THREE.MeshStandardMaterial({ map: venusTexture });
 const venusGroup = new THREE.Group();
 const venusMesh = new THREE.Mesh(geometry, venusMaterial);
 createPlanet(scene, venusMesh, venusGroup, 28, 0.9);
 
 //earth
-const earthTexture = loader.load("assets/earth.jpg");
+const earthTexture = loader.load("texture/earth.jpg");
 const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture});
 const earthGroup = new THREE.Group();
 const earthMesh = new THREE.Mesh(geometry, earthMaterial);
