@@ -191,6 +191,26 @@ const earthGroup = new THREE.Group();
 const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 createPlanet(scene, earthMesh, earthGroup, 31, 1);
 
+//saturn
+const saturnGroup = new THREE.Group();
+const saturnMesh = new THREE.Mesh(geometry, saturnMaterial);
+createPlanet(scene, saturnMesh, saturnGroup, 50, 2.9);
+
+    // Saturns ring
+    const innerRadius = 4;
+    const outerRadius = 5.5;
+    const thetaSegments = 60;
+    const saturnBelt = new THREE.RingBufferGeometry(
+        innerRadius, outerRadius, thetaSegments);
+    const material = new THREE.MeshPhongMaterial({
+        side: THREE.DoubleSide,
+    });
+    const mesh = new THREE.Mesh(saturnBelt, material);
+    mesh.rotation.set(5,0,0);
+
+    mesh.position.set(50, 0, 0);
+    saturnOrbit.add(mesh);
+
 function createPlanet(scene, mesh, group, x, scale) {
     mesh.position.set(x, 0, 0);
     mesh.scale.setScalar(scale);
