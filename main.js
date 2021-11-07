@@ -158,8 +158,7 @@ const texture = loaderTexture.load(
  const materialDisco = new THREE.MeshPhysicalMaterial( {wireframe: false, map: loaderTexture.load('./texture/sun.jpg')} );
  materialDisco.color = new THREE.Color(0xffffff);
  const sun = new THREE.Mesh(geometrySphere, materialDisco);
-sun.position.y = 0;
-sun.position.x = 0;
+sun.position.y = 5;
  scene.add(sun);
  
  const refMat = new THREE.MeshBasicMaterial({
