@@ -12,7 +12,7 @@ function scene(canvas) {
     const camera = buildCamera(screenDimensions);
     const sceneSubjects = createSceneSubjects(scene);
 
-    const cameraControls = new MyCameraControls(camera, canvas);
+//     const cameraControls = new MyCameraControls(camera, canvas);
 
     //scene.background = new THREE.Color('black');
 
@@ -74,7 +74,7 @@ function scene(canvas) {
 
 
         let x = sceneSubjects[0];
-        cameraControls.update();
+//         cameraControls.update();
         renderer.render(scene, camera);
     }
 
