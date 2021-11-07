@@ -1,4 +1,4 @@
-# Jaringan Komputer B- (2021)
+# Jaringan Komputer B-13 (2021)
 
 Final Project Grafika Komputer - Solar System
 
