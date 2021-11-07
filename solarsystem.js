@@ -1,3 +1,5 @@
+import * as THREE from './js/three.module.js';
+
 function SolarSystem(scene, time) {
     const loader = new THREE.TextureLoader();
 
