@@ -205,7 +205,7 @@ createPlanet(scene, saturnMesh, saturnGroup, 50, 2.9);
     const saturnBelt = new THREE.RingBufferGeometry(
         innerRadius, outerRadius, thetaSegments);
     const ringTexture = loader.load("texture/saturn_ring.png");
-    const material = new THREE.MeshPhongMaterial({
+    const material = new THREE.MeshStandardMaterial({
         side: THREE.DoubleSide, map: ringTexture,
     });
     
