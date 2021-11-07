@@ -166,12 +166,12 @@ const texture = loaderTexture.load(
  const refGeo = new THREE.SphereGeometry(3, 48 , 24);
  
  
- const geometryBox = new THREE.BoxGeometry(9, 0.2, 9);
- const materialBox = new THREE.MeshPhysicalMaterial( {wireframe: false} );
- materialBox.color = new THREE.Color(0xffffff);
- const cube = new THREE.Mesh(geometryBox, materialBox);
-//  cube.position.y = 0;
- scene.add(cube);
+//  const geometryBox = new THREE.BoxGeometry(9, 0.2, 9);
+//  const materialBox = new THREE.MeshPhysicalMaterial( {wireframe: false} );
+//  materialBox.color = new THREE.Color(0xffffff);
+//  const cube = new THREE.Mesh(geometryBox, materialBox);
+// //  cube.position.y = 0;
+//  scene.add(cube);
  
  disco.castShadow = true;
  cube.receiveShadow = true;
