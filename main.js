@@ -203,7 +203,7 @@ const jupiterTexture = loader.load("texture/jupiter.jpg");
 const jupiterMaterial = new THREE.MeshStandardMaterial({ map: jupiterTexture });
 const jupiterGroup = new THREE.Group();
 const jupiterMesh = new THREE.Mesh(geometry, jupiterMaterial);
-createPlanet(scene, jupiterMesh, jupiterGroup, 50, 3.5);
+createPlanet(scene, jupiterMesh, jupiterGroup, 55, 3.5);
 
 //saturn
 const saturnTexture = loader.load("texture/saturn.jpg");
