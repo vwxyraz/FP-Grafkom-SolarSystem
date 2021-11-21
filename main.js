@@ -69,11 +69,11 @@ function onKeyDown(e) {
 
     if (e.keyCode == '38') {
         // up arrow
-        scene.rotation.y = scene.rotation.y - delta;
+        camera.rotation.y = camera.rotation.y - delta;
     }
     else if (e.keyCode == '40') {
         // down arrow
-        scene.rotation.y = scene.rotation.y + delta;
+        camera.rotation.y = camera.rotation.y + delta;
     }
     else if (e.keyCode == '37') {
        // left arrow
