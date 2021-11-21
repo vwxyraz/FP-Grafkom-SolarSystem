@@ -56,9 +56,9 @@ const texture = loaderTexture.load(
      width: window.innerWidth,
      height: window.innerHeight
  }
- 
-window.onKeyDown = checkKey;
-function checkKey(e) {
+
+
+let onKeyDown = function (e) {
     
     var delta = 0.2;
 
@@ -87,7 +87,7 @@ function checkKey(e) {
 
 }
 
-// window.addEventListener('keydown',onKeyDown,false);
+ window.addEventListener('keydown', onKeyDown, false);
  
  window.addEventListener('resize', () =>
  {
@@ -102,8 +102,6 @@ function checkKey(e) {
      // Update renderer
      renderer.setSize(sizes.width, sizes.height);
      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-     
-    window.addEventListener('keydown',onKeyDown,false);
      
  })
  
