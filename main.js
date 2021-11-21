@@ -69,11 +69,13 @@ function onKeyDown(e) {
 
     if (e.keyCode == '38') {
         // up arrow
-        window.rotation.x = window.rotation.x - delta;
+        scene.rotation.y = scene.rotation.y - delta;
+        planets.rotation.y = planets.rotation.y - delta;
     }
     else if (e.keyCode == '40') {
         // down arrow
-        window.rotation.x = window.rotation.x + delta;
+        scene.rotation.y = scene.rotation.y + delta;
+        planets.rotation.y = planets.rotation.y + delta;
     }
     else if (e.keyCode == '37') {
        // left arrow
