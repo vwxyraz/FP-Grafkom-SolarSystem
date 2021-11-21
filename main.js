@@ -24,7 +24,7 @@ const bgTexture = loaderBG.load([
     './texture/nz.png',
 ]);
 
-let planets[];
+let planets = [];
 
 // Texture
 const loaderTexture = new THREE.TextureLoader();
