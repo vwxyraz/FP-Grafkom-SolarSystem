@@ -69,12 +69,12 @@ function onKeyDown(e) {
 
     if (e.keyCode == '38') {
         // up arrow
-        scene.rotation.x = camera.rotation.x - delta;
+        scene.rotation.x = scene.rotation.x - delta;
 //         camera.updateProjectionMatrix();
     }
     else if (e.keyCode == '40') {
         // down arrow
-        scene.rotation.x = camera.rotation.x + delta;
+        scene.rotation.x = scene.rotation.x + delta;
 //         camera.updateProjectionMatrix();
     }
     else if (e.keyCode == '37') {
