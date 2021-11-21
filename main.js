@@ -59,7 +59,7 @@ const texture = loaderTexture.load(
      height: window.innerHeight
  }
 
- window.addEventListener('keydown', onKeyDown, false);
+ document.addEventListener('keydown', onKeyDown, false);
  
 function onKeyDown(e) {
     
