@@ -219,7 +219,8 @@ const venusTexture = loader.load("texture/venus.jpg");
 const venusMaterial = new THREE.MeshStandardMaterial({ map: venusTexture });
 const venusGroup = new THREE.Group();
 const venusMesh = new THREE.Mesh(geometry, venusMaterial);
-createPlanet(scene, venusMesh, venusGroup, 28, 0.9);
+let venus = createPlanet(scene, venusMesh, venusGroup, 28, 0.9);
+planets.push(venus);
 
 //earth
 const earthTexture = loader.load("texture/earth.jpg");
@@ -262,7 +263,7 @@ const saturnMesh = new THREE.Mesh(geometry, saturnMaterial);
     const mesh = new THREE.Mesh(saturnBelt, material);
     mesh.rotation.set(5,0,0);
 
-//     mesh.position.set(70, 0, 0);
+    mesh.position.set(70, 0, 0);
     saturnGroup.add(mesh);
 
 createPlanet(scene, saturnMesh, saturnGroup, 70, 2.9);
