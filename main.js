@@ -59,6 +59,8 @@ const texture = loaderTexture.load(
  
 window.onKeyDown = checkKey;
 function checkKey(e) {
+    
+    var delta = 200;
 
     e = e || window.event;
 
