@@ -57,6 +57,36 @@ const texture = loaderTexture.load(
      height: window.innerHeight
  }
  
+window.onKeyDown = checkKey;
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+        // up arrow
+        camera.position.z = camera.position.z - delta;
+        camera.updateProjectionMatrix();
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+        camera.position.z = camera.position.z + delta;
+        camera.updateProjectionMatrix();
+    }
+    else if (e.keyCode == '37') {
+       // left arrow
+        camera.position.x = camera.position.x - delta;
+        camera.updateProjectionMatrix();
+    }
+    else if (e.keyCode == '39') {
+       // right arrow
+        camera.position.x = camera.position.x + delta;
+        camera.updateProjectionMatrix();
+    }
+
+}
+
+window.addEventListener('keydown',onKeyDown,false);
+ 
  window.addEventListener('resize', () =>
  {
      // Update sizes
@@ -257,28 +287,6 @@ function createPlanet(scene, mesh, group, x, scale) {
  const controls = new OrbitControls(camera, canvas);
 
  controls.autoRotateSpeed = 4;
-
-document.onKeyDown = checkKey;
-
-function checkKey(e) {
-
-    e = e || window.event;
-
-    if (e.keyCode == '38') {
-        // up arrow
-    }
-    else if (e.keyCode == '40') {
-        // down arrow
-    }
-    else if (e.keyCode == '37') {
-       // left arrow
-    }
-    else if (e.keyCode == '39') {
-       // right arrow
-    }
-
-}
-
  
  /**
   * Animate
@@ -298,6 +306,7 @@ function checkKey(e) {
  
      // Call tick again on the next frame
      window.requestAnimationFrame(tick);
-     document.addEventListener("keydown", onKeyDown, false);
+
+     
  }
  tick();
