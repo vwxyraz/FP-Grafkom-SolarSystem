@@ -89,7 +89,7 @@ const texture = loaderTexture.load(
 
 // window.addEventListener('keydown',onKeyDown,false);
  
- window.addEventListener('resize', function(e) =>
+ window.addEventListener('resize', function(e)
  {
      // Update sizes
      sizes.width = window.innerWidth;
