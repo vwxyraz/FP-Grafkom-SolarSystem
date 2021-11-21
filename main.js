@@ -57,12 +57,13 @@ const texture = loaderTexture.load(
      height: window.innerHeight
  }
 
-
-let onKeyDown = function (e) {
+ window.addEventListener('keydown', onKeyDown, false);
+ 
+function onKeyDown(e) {
     
     var delta = 0.2;
 
-    e = e || window.event;
+    e = e || window.e;
 
     if (e.keyCode == '38') {
         // up arrow
@@ -87,8 +88,7 @@ let onKeyDown = function (e) {
 
 }
 
- window.addEventListener('keydown', onKeyDown, false);
- 
+
  window.addEventListener('resize', () =>
  {
      // Update sizes
