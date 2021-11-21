@@ -24,6 +24,8 @@ const bgTexture = loaderBG.load([
     './texture/nz.png',
 ]);
 
+let planets[];
+
 // Texture
 const loaderTexture = new THREE.TextureLoader();
 const texture = loaderTexture.load(
@@ -67,12 +69,12 @@ function onKeyDown(e) {
 
     if (e.keyCode == '38') {
         // up arrow
-        camera.rotation.x = camera.rotation.x - delta;
+        scene.rotation.x = camera.rotation.x - delta;
 //         camera.updateProjectionMatrix();
     }
     else if (e.keyCode == '40') {
         // down arrow
-        camera.rotation.x = camera.rotation.x + delta;
+        scene.rotation.x = camera.rotation.x + delta;
 //         camera.updateProjectionMatrix();
     }
     else if (e.keyCode == '37') {
@@ -201,6 +203,7 @@ const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture });
 const sunMesh = new THREE.Mesh(geometry, sunMaterial);
 sunMesh.position.set(0, 0, 0);
 sunMesh.scale.setScalar(10);
+planets.push(sunMesh);
 scene.add(sunMesh);
 
 //mercury
@@ -208,7 +211,8 @@ const mercuryTexture = loader.load("texture/mercury.jpg");
 const mercuryMaterial = new THREE.MeshStandardMaterial({ map: mercuryTexture });
 const mercuryGroup = new THREE.Group();
 const mercuryMesh = new THREE.Mesh(geometry, mercuryMaterial);
-createPlanet(scene, mercuryMesh, mercuryGroup, 25, 0.8);
+let mercury = createPlanet(scene, mercuryMesh, mercuryGroup, 25, 0.8);
+planets.push(mercury);
 
 //venus
 const venusTexture = loader.load("texture/venus.jpg");
@@ -243,7 +247,6 @@ const saturnTexture = loader.load("texture/saturn.jpg");
 const saturnMaterial = new THREE.MeshStandardMaterial({ map: saturnTexture });
 const saturnGroup = new THREE.Group();
 const saturnMesh = new THREE.Mesh(geometry, saturnMaterial);
-createPlanet(scene, saturnMesh, saturnGroup, 70, 2.9);
 
     // Saturns ring
     const innerRadius = 4;
@@ -259,8 +262,10 @@ createPlanet(scene, saturnMesh, saturnGroup, 70, 2.9);
     const mesh = new THREE.Mesh(saturnBelt, material);
     mesh.rotation.set(5,0,0);
 
-    mesh.position.set(70, 0, 0);
+//     mesh.position.set(70, 0, 0);
     saturnGroup.add(mesh);
+
+createPlanet(scene, saturnMesh, saturnGroup, 70, 2.9);
 
 //uranus
 const uranusTexture = loader.load("texture/uranus.jpg");
