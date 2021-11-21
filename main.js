@@ -67,12 +67,12 @@ function onKeyDown(e) {
 
     if (e.keyCode == '38') {
         // up arrow
-        camera.position.z = camera.position.z - delta;
+        camera.position.z = camera.position.y - delta;
         camera.updateProjectionMatrix();
     }
     else if (e.keyCode == '40') {
         // down arrow
-        camera.position.z = camera.position.z + delta;
+        camera.position.z = camera.position.y + delta;
         camera.updateProjectionMatrix();
     }
     else if (e.keyCode == '37') {
