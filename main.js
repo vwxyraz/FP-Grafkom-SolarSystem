@@ -70,12 +70,10 @@ function onKeyDown(e) {
     if (e.keyCode == '38') {
         // up arrow
         scene.rotation.x = scene.rotation.x - delta;
-        planets.rotation.x = planets.rotation.x - delta;
     }
     else if (e.keyCode == '40') {
         // down arrow
         scene.rotation.x = scene.rotation.x + delta;
-        planets.rotation.x = planets.rotation.x + delta;
     }
     else if (e.keyCode == '37') {
        // left arrow
