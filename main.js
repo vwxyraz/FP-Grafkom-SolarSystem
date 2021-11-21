@@ -67,22 +67,22 @@ function onKeyDown(e) {
 
     if (e.keyCode == '38') {
         // up arrow
-        camera.position.y = camera.position.y - delta;
+        camera.rotation.x = camera.rotation.x - delta;
 //         camera.updateProjectionMatrix();
     }
     else if (e.keyCode == '40') {
         // down arrow
-        camera.position.y = camera.position.y + delta;
+        camera.rotation.x = camera.rotation.x + delta;
 //         camera.updateProjectionMatrix();
     }
     else if (e.keyCode == '37') {
        // left arrow
-        camera.position.x = camera.position.x - delta;
+        scene.position.x = scene.position.x - delta;
 //         camera.updateProjectionMatrix();
     }
     else if (e.keyCode == '39') {
        // right arrow
-        camera.position.x = camera.position.x + delta;
+        scene.position.x = scene.position.x + delta;
 //         camera.updateProjectionMatrix();
     }
 
