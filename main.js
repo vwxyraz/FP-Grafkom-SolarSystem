@@ -255,8 +255,29 @@ function createPlanet(scene, mesh, group, x, scale) {
   * Controls
   */ 
  const controls = new OrbitControls(camera, canvas);
-;
+
  controls.autoRotateSpeed = 4;
+
+document.onKeyDown = checkKey;
+
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+        // up arrow
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+    }
+    else if (e.keyCode == '37') {
+       // left arrow
+    }
+    else if (e.keyCode == '39') {
+       // right arrow
+    }
+
+}
 
  
  /**
@@ -277,5 +298,6 @@ function createPlanet(scene, mesh, group, x, scale) {
  
      // Call tick again on the next frame
      window.requestAnimationFrame(tick);
+     document.addEventListener("keydown", onKeyDown, false);
  }
  tick();
