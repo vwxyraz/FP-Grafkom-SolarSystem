@@ -57,49 +57,10 @@ const texture = loaderTexture.load(
      height: window.innerHeight
  }
  
-// window.onKeyDown = checkKey;
-// function checkKey(e) {
+window.onKeyDown = checkKey;
+function checkKey(e) {
     
-//     var delta = 0.2;
-
-//     e = e || window.event;
-
-//     if (e.keyCode == '38') {
-//         // up arrow
-//         camera.position.z = camera.position.z - delta;
-//         camera.updateProjectionMatrix();
-//     }
-//     else if (e.keyCode == '40') {
-//         // down arrow
-//         camera.position.z = camera.position.z + delta;
-//         camera.updateProjectionMatrix();
-//     }
-//     else if (e.keyCode == '37') {
-//        // left arrow
-//         camera.position.x = camera.position.x - delta;
-//         camera.updateProjectionMatrix();
-//     }
-//     else if (e.keyCode == '39') {
-//        // right arrow
-//         camera.position.x = camera.position.x + delta;
-//         camera.updateProjectionMatrix();
-//     }
-
-// }
-
-// window.addEventListener('keydown',onKeyDown,false);
- 
- window.addEventListener('resize', function(e)
- {
-     // Update sizes
-     sizes.width = window.innerWidth;
-     sizes.height = window.innerHeight;
-     
-     // Update camera
-     camera.aspect = sizes.width / sizes.height;
-     camera.updateProjectionMatrix();
-     
-     var delta = 0.2;
+    var delta = 0.2;
 
     e = e || window.event;
 
@@ -123,10 +84,26 @@ const texture = loaderTexture.load(
         camera.position.x = camera.position.x + delta;
         camera.updateProjectionMatrix();
     }
+
+}
+
+// window.addEventListener('keydown',onKeyDown,false);
+ 
+ window.addEventListener('resize', () =>
+ {
+     // Update sizes
+     sizes.width = window.innerWidth;
+     sizes.height = window.innerHeight;
+     
+     // Update camera
+     camera.aspect = sizes.width / sizes.height;
+     camera.updateProjectionMatrix();
      
      // Update renderer
      renderer.setSize(sizes.width, sizes.height);
      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+     
+    window.addEventListener('keydown',onKeyDown,false);
      
  })
  
