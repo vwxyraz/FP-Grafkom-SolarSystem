@@ -70,22 +70,18 @@ function onKeyDown(e) {
     if (e.keyCode == '38') {
         // up arrow
         scene.rotation.x = scene.rotation.x - delta;
-//         camera.updateProjectionMatrix();
     }
     else if (e.keyCode == '40') {
         // down arrow
         scene.rotation.x = scene.rotation.x + delta;
-//         camera.updateProjectionMatrix();
     }
     else if (e.keyCode == '37') {
        // left arrow
-        scene.position.x = scene.position.x - delta;
-//         camera.updateProjectionMatrix();
+//         scene.position.x = scene.position.x - delta;
     }
     else if (e.keyCode == '39') {
        // right arrow
-        scene.position.x = scene.position.x + delta;
-//         camera.updateProjectionMatrix();
+//         scene.position.x = scene.position.x + delta;
     }
 
 }
