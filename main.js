@@ -138,9 +138,9 @@ let onMouseClick = function(e) {
 
 let onKeyDown = function(e) {
     if(e.keyCode == LEFT) 
-        planets.forEach(group => group.position.x -= 0.2);
-    else if(e.keyCode == RIGHT)
         planets.forEach(group => group.position.x += 0.2);
+    else if(e.keyCode == RIGHT)
+        planets.forEach(group => group.position.x -= 0.2);
     else if(e.keyCode == UP)
         planets.forEach(group => group.position.z -= 0.2);
     else if(e.keyCode == DOWN)
