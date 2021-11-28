@@ -24,8 +24,6 @@ const bgTexture = loaderBG.load([
     './texture/nz.png',
 ]);
 
-let planets = [];
-
 // Texture
 const loaderTexture = new THREE.TextureLoader();
 const texture = loaderTexture.load(
@@ -58,33 +56,6 @@ const texture = loaderTexture.load(
      width: window.innerWidth,
      height: window.innerHeight
  }
-
- document.addEventListener('keydown', onKeyDown, false);
- 
-function onKeyDown(e) {
-    
-    var delta = 0.2;
-
-    e = e || window.e;
-
-    if (e.keyCode == '38') {
-        // up arrow
-        scene.rotation.y = scene.rotation.y - delta;
-    }
-    else if (e.keyCode == '40') {
-        // down arrow
-        scene.rotation.y = scene.rotation.y + delta;
-    }
-    else if (e.keyCode == '37') {
-       // left arrow
-//         scene.position.x = scene.position.x - delta;
-    }
-    else if (e.keyCode == '39') {
-       // right arrow
-//         scene.position.x = scene.position.x + delta;
-    }
-
-}
 
 
  window.addEventListener('resize', () =>
@@ -153,6 +124,29 @@ function onKeyDown(e) {
   * Roughness Mipmapper
   */
  const roughnessMipmapper = new RoughnessMipmapper( renderer );
+
+//EVENT HANDLER
+
+let onMouseClick = function(e) {
+    ADD *= -1;
+    let x = e.clientX;
+    let y = e.clientY;
+    console.log(x + ", " + y);
+    
+};
+
+let onKeyDown = function(e) {
+    if(e.keyCode == LEFT) 
+        planets.forEach(group => group.position.x -= 0.2);
+    else if(e.keyCode == RIGHT)
+        planets.forEach(group => group.position.x += 0.2);
+    else if(e.keyCode == UP)
+        scene.rotation.x += 0.2;
+    else if(e.keyCode == DOWN)
+        scene.rotation.x -= 0.2;
+    else
+        return;
+};
  
  
 //  /**
@@ -188,6 +182,8 @@ function onKeyDown(e) {
  * Planets
  */
 
+let planets = [];
+
 const loader = new THREE.TextureLoader();
 
 // const scene = new THREE.Scene();
@@ -196,27 +192,23 @@ const geometry = new THREE.SphereGeometry(1, 48, 32);
 //sun
 const sunTexture = loader.load("texture/sun.jpg");
 const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture });
+const sunGroup = new THREE.Group();
 const sunMesh = new THREE.Mesh(geometry, sunMaterial);
-sunMesh.position.set(0, 0, 0);
-sunMesh.scale.setScalar(10);
-planets.push(sunMesh);
-scene.add(sunMesh);
+createPlanet(scene, sunMesh, sunGroup, 0, 10);
 
 //mercury
 const mercuryTexture = loader.load("texture/mercury.jpg");
 const mercuryMaterial = new THREE.MeshStandardMaterial({ map: mercuryTexture });
 const mercuryGroup = new THREE.Group();
 const mercuryMesh = new THREE.Mesh(geometry, mercuryMaterial);
-let mercury = createPlanet(scene, mercuryMesh, mercuryGroup, 25, 0.8);
-planets.push(mercury);
+createPlanet(scene, mercuryMesh, mercuryGroup, 25, 0.8);
 
 //venus
 const venusTexture = loader.load("texture/venus.jpg");
 const venusMaterial = new THREE.MeshStandardMaterial({ map: venusTexture });
 const venusGroup = new THREE.Group();
 const venusMesh = new THREE.Mesh(geometry, venusMaterial);
-let venus = createPlanet(scene, venusMesh, venusGroup, 28, 0.9);
-planets.push(venus);
+createPlanet(scene, venusMesh, venusGroup, 28, 0.9);
 
 //earth
 const earthTexture = loader.load("texture/earth.jpg");
@@ -282,6 +274,7 @@ function createPlanet(scene, mesh, group, x, scale) {
     mesh.position.set(x, 0, 0);
     mesh.scale.setScalar(scale);
     group.add(mesh);
+    planets.push(group);
     scene.add(group);
 }
 
