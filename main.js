@@ -126,6 +126,7 @@ const texture = loaderTexture.load(
  const roughnessMipmapper = new RoughnessMipmapper( renderer );
 
 //EVENT HANDLER
+const LEFT = 37, RIGHT = 39, UP = 38, DOWN = 40; 
 
 let onMouseClick = function(e) {
     ADD *= -1;
