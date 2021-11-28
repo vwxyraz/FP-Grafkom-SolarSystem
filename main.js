@@ -142,9 +142,9 @@ let onKeyDown = function(e) {
     else if(e.keyCode == RIGHT)
         planets.forEach(group => group.position.x += 0.2);
     else if(e.keyCode == UP)
-        scene.rotation.x += 0.2;
+        planets.forEach(group => group.position.z -= 0.2);
     else if(e.keyCode == DOWN)
-        scene.rotation.x -= 0.2;
+        planets.forEach(group => group.position.z += 0.2);
     else
         return;
 };
