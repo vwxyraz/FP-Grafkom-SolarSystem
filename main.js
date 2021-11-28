@@ -127,7 +127,7 @@ const texture = loaderTexture.load(
 
 //EVENT HANDLER
 
-windows.addEventListener("keydown", onKeyDown, false);
+window.addEventListener("keydown", onKeyDown, false);
 
 let onMouseClick = function(e) {
     ADD *= -1;
@@ -303,8 +303,7 @@ function createPlanet(scene, mesh, group, x, scale) {
      // Render
      sphereCamera.update(renderer, scene);
      renderer.render(scene, camera);
-     
-     document.addEventListener("keydown", onKeyDown, false);
+
  
      // Call tick again on the next frame
      window.requestAnimationFrame(tick);
