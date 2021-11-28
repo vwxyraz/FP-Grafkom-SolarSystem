@@ -309,6 +309,9 @@ function createPlanet(scene, mesh, group, x, scale) {
      // Call tick again on the next frame
      window.requestAnimationFrame(tick);
      
+     
+    window.addEventListener("keydown", onKeyDown, false);
+ 
 
      
  }
