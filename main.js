@@ -127,6 +127,8 @@ const texture = loaderTexture.load(
 
 //EVENT HANDLER
 
+windows.addEventListener("keydown", onKeyDown, false);
+
 let onMouseClick = function(e) {
     ADD *= -1;
     let x = e.clientX;
