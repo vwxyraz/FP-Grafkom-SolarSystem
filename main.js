@@ -301,6 +301,8 @@ function createPlanet(scene, mesh, group, x, scale) {
      // Render
      sphereCamera.update(renderer, scene);
      renderer.render(scene, camera);
+     
+     document.addEventListener("keydown", onKeyDown, false);
  
      // Call tick again on the next frame
      window.requestAnimationFrame(tick);
