@@ -180,6 +180,54 @@ window.addEventListener("keydown", onKeyDown, false);
 //  function(error){
 //      console.log('An Error Occurred');
 //  })
+
+// Orbit
+var maker, spline;
+var matrix = new THREE.Matrix4();
+var up = new THREE.Vector3(0, 1, 0);
+var axis = new THREE.Vector3();
+
+// Orbit Variable 
+var mercpath, venpath, earthpath, marspath,
+    juppath, satpath, urapath, neppath;
+
+// var planetObj = [];
+var pathObj = [];
+// the getPoint starting variable 
+var mt=vet=eat=mat=jupt=satt=urat=nept = 0;
+// Ellipse class, which extends the virtual base class Curve
+function Ellipse( xRadius, yRadius ) {
+    THREE.Curve.call( this );
+    // add radius 
+    this.xRadius = xRadius;
+    this.yRadius = yRadius;
+}
+
+Ellipse.prototype = Object.create( THREE.Curve.prototype );
+Ellipse.prototype.constructor = Ellipse;
+
+// getPoint function for the subClass
+Ellipse.prototype.getPoint = function (t) {
+    var radians = 2 * Math.PI * t;
+    return new THREE.Vector3(this.xRadius * Math.cos( radians ),0,
+                            this.yRadius * Math.sin( radians ));
+};
+
+// params
+var pathSegments = 128;
+var tubeRadius = 0.03;
+var radiusSegments = 3;
+var closed = true;
+
+// material
+var material = new THREE.MeshPhongMaterial({color: 'white',});
+
+// mercury orbit mesh
+mercpath = new Ellipse( 15, 10 );
+var mercgeometry = new THREE.TubeBufferGeometry( mercpath, pathSegments, tubeRadius, radiusSegments, closed );
+mesh = new THREE.Mesh( mercgeometry, material );
+scene.add( mesh );
+pathObj.push(mesh);
  
  
 /*
