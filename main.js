@@ -220,12 +220,12 @@ var radiusSegments = 3;
 var closed = true;
 
 // material
-var material = new THREE.MeshPhongMaterial({color: 'white',});
+var mat_path = new THREE.MeshPhongMaterial({color: 'white',});
 
 // mercury orbit mesh
 mercpath = new Ellipse( 15, 10 );
 var mercgeometry = new THREE.TubeBufferGeometry( mercpath, pathSegments, tubeRadius, radiusSegments, closed );
-mesh = new THREE.Mesh( mercgeometry, material );
+mesh = new THREE.Mesh( mercgeometry, mat_path );
 scene.add( mesh );
 pathObj.push(mesh);
  
