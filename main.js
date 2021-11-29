@@ -181,53 +181,81 @@ window.addEventListener("keydown", onKeyDown, false);
 //      console.log('An Error Occurred');
 //  })
 
-// Orbit
-var maker, spline;
-var matrix = new THREE.Matrix4();
-var up = new THREE.Vector3(0, 1, 0);
-var axis = new THREE.Vector3();
+// // Orbit
+// var maker, spline;
+// var matrix = new THREE.Matrix4();
+// var up = new THREE.Vector3(0, 1, 0);
+// var axis = new THREE.Vector3();
 
-// Orbit Variable 
-var mercpath, venpath, earthpath, marspath,
-    juppath, satpath, urapath, neppath;
+// // Orbit Variable 
+// var mercpath, venpath, earthpath, marspath,
+//     juppath, satpath, urapath, neppath;
 
-// var planetObj = [];
-var pathObj = [];
-// the getPoint starting variable 
-var mt= 0, vet= 0, eat= 0, mat= 0, jupt= 0, satt= 0, urat= 0, nept = 0;
-// Ellipse class, which extends the virtual base class Curve
-function Ellipse( xRadius, yRadius ) {
-    THREE.Curve.call( this );
-    // add radius 
-    this.xRadius = xRadius;
-    this.yRadius = yRadius;
+// // var planetObj = [];
+// var pathObj = [];
+// // the getPoint starting variable 
+// var mt= 0, vet= 0, eat= 0, mat= 0, jupt= 0, satt= 0, urat= 0, nept = 0;
+// // Ellipse class, which extends the virtual base class Curve
+// function Ellipse( xRadius, yRadius ) {
+//     THREE.Curve.call( this );
+//     // add radius 
+//     this.xRadius = xRadius;
+//     this.yRadius = yRadius;
+// }
+
+// Ellipse.prototype = Object.create( THREE.Curve.prototype );
+// Ellipse.prototype.constructor = Ellipse;
+
+// // getPoint function for the subClass
+// Ellipse.prototype.getPoint = function (t) {
+//     var radians = 2 * Math.PI * t;
+//     return new THREE.Vector3(this.xRadius * Math.cos( radians ),0,
+//                             this.yRadius * Math.sin( radians ));
+// };
+
+// // params
+// var pathSegments = 128;
+// var tubeRadius = 0.03;
+// var radiusSegments = 3;
+// var closed = true;
+
+// // material
+// var mat_path = new THREE.MeshPhongMaterial({color: 'white',});
+
+// // mercury orbit mesh
+// mercpath = new Ellipse( 15, 10 );
+// var mercgeometry = new THREE.TubeBufferGeometry( mercpath, pathSegments, tubeRadius, radiusSegments, closed );
+// mesh = new THREE.Mesh( mercgeometry, mat_path );
+// scene.add( mesh );
+// pathObj.push(mesh);
+
+function createOrbit() {
+    const orbit = new THREE.Group();
+
+    for (let i = 0, j = arguments.length; i < j; i++) {
+        arguments[i].add(orbit);
+    }
+
+    return orbit;
 }
 
-Ellipse.prototype = Object.create( THREE.Curve.prototype );
-Ellipse.prototype.constructor = Ellipse;
+function createOrbitLine(distanceX, scene, astrionomicalBodies) {
+    const innerRadius = distanceX - 1;
+    const outerRadius = distanceX + 1;
+    const thetaSegments = 80;
+    const geometry = new THREE.RingBufferGeometry(innerRadius, outerRadius, thetaSegments);
+    const material = new THREE.MeshBasicMaterial({
+        color: 0xf5e96c,
+        opacity: 0.2,
+        transparent: true,
+        side: THREE.DoubleSide
+    });
+    var mesh = new THREE.Mesh(geometry, material);
+    mesh.rotation.x = Math.PI / 2;
 
-// getPoint function for the subClass
-Ellipse.prototype.getPoint = function (t) {
-    var radians = 2 * Math.PI * t;
-    return new THREE.Vector3(this.xRadius * Math.cos( radians ),0,
-                            this.yRadius * Math.sin( radians ));
-};
-
-// params
-var pathSegments = 128;
-var tubeRadius = 0.03;
-var radiusSegments = 3;
-var closed = true;
-
-// material
-var mat_path = new THREE.MeshPhongMaterial({color: 'white',});
-
-// mercury orbit mesh
-mercpath = new Ellipse( 15, 10 );
-var mercgeometry = new THREE.TubeBufferGeometry( mercpath, pathSegments, tubeRadius, radiusSegments, closed );
-mesh = new THREE.Mesh( mercgeometry, mat_path );
-scene.add( mesh );
-pathObj.push(mesh);
+    scene.add(mesh);
+}
+ 
  
  
 /*
