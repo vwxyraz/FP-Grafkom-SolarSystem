@@ -194,7 +194,7 @@ var mercpath, venpath, earthpath, marspath,
 // var planetObj = [];
 var pathObj = [];
 // the getPoint starting variable 
-var mt=vet=eat=mat=jupt=satt=urat=nept = 0;
+var mt= 0, vet= 0, eat= 0, mat= 0, jupt= 0, satt= 0, urat= 0, nept = 0;
 // Ellipse class, which extends the virtual base class Curve
 function Ellipse( xRadius, yRadius ) {
     THREE.Curve.call( this );
