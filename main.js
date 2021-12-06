@@ -245,7 +245,8 @@ function createOrbitLine(distanceX, scene, astrionomicalBodies) {
     const thetaSegments = 80;
     const geometry = new THREE.RingBufferGeometry(innerRadius, outerRadius, thetaSegments);
     const material = new THREE.MeshBasicMaterial({
-        color: 0xf5e96c,
+//         color: 0xf5e96c,
+        color: 0xff0000,
         opacity: 0.2,
         transparent: true,
         side: THREE.DoubleSide
